@@ -40,6 +40,7 @@ class Fragment_win : Fragment() {
 //                val date = snapshot.child("0").child("date").value
 //                Log.d(TAG, "Value is: $value")
 //                Log.d(TAG, "Value2 is: $date")
+                
             }
 
             override fun onCancelled(error: DatabaseError) {
