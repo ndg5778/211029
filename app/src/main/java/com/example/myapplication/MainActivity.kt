@@ -11,13 +11,12 @@ import android.widget.TextView
 import com.example.myapplication.Fragment_win
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_win.*
-import com.google.firebase.database.ChildEventListener
 
-import com.google.firebase.database.DatabaseReference
-
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 
 
 class MainActivity : AppCompatActivity() {
@@ -29,7 +28,9 @@ class MainActivity : AppCompatActivity() {
         const val TAG: String="로그"
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_main)
@@ -49,6 +50,23 @@ class MainActivity : AppCompatActivity() {
 //        var listView: listView
 //        var adapter: ArrayAdapter<String?>
 //        val Array: List<Any> = ArrayList()
+
+        val database = Firebase.database
+        val myRef = database.getReference("0")
+
+//        myRef.addValueEventListener(object: ValueEventListener {
+//
+//            override fun onDataChange(snapshot: DataSnapshot) {
+////                val value = snapshot.value
+////                val date = snapshot.child("0").child("date").value
+////                Log.d(TAG, "Value is: $value")
+////                Log.d(TAG, "Value2 is: $date")
+//            }
+//
+//            override fun onCancelled(error: DatabaseError) {
+//                Log.w(TAG, "Failed to read value.", error.toException())
+//            }
+//        })
 
     }
 
@@ -86,4 +104,5 @@ class MainActivity : AppCompatActivity() {
         }
         return true
     }*/
+
 }

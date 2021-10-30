@@ -8,7 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import kotlin.math.log
+
+data class ListViewItem(val title: String, val subTitle: String, val date: String, val cost: Int)
 
 class Fragment_win : Fragment() {
     companion object {
@@ -22,6 +29,23 @@ class Fragment_win : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "Fragment_win - onCreate() called")
+
+        val database = Firebase.database
+        val myRef = database.getReference("0")
+
+        myRef.addValueEventListener(object: ValueEventListener {
+
+            override fun onDataChange(snapshot: DataSnapshot) {
+//                val value = snapshot.value
+//                val date = snapshot.child("0").child("date").value
+//                Log.d(TAG, "Value is: $value")
+//                Log.d(TAG, "Value2 is: $date")
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.w(MainActivity.TAG, "Failed to read value.", error.toException())
+            }
+        })
     }
 
 //    override fun onCreate(saveInstanceState: Bundle?){
@@ -32,6 +56,10 @@ class Fragment_win : Fragment() {
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.d(TAG, "Fragment_win - onAttach() called")
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
     }
 
     override fun onCreateView(
