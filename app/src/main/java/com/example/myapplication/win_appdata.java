@@ -11,12 +11,12 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class ListAdapter extends BaseAdapter {
+public class win_appdata extends BaseAdapter {
     LayoutInflater inflater = null;
-    private ArrayList<win_list> m_oData = null;
+    private ArrayList<winlist> m_oData = null;
     private int nListCnt = 0;
 
-    public ListAdapter(ArrayList<win_list> _oData){
+    public win_appdata(ArrayList<winlist> _oData){
         m_oData=_oData;
         nListCnt=m_oData.size();
     }
@@ -48,11 +48,10 @@ public class ListAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.fragment_win,parent,false);
         }
 
-        TextView oTourName = (TextView) convertView.findViewById(R.id.win_list_name);
-        TextView oTourContent = (TextView) convertView.findViewById(R.id.tour_content);
-        TextView oTourLocation = (TextView) convertView.findViewById(R.id.tour_loation);
-        TextView oTourScore = (TextView) convertView.findViewById(R.id.tour_score);
-        ImageView oTourImage = (ImageView) convertView.findViewById(R.id.tour_image);
+        TextView oTourName = (TextView) convertView.findViewById(R.id.title_win);
+        TextView oTourContent = (TextView) convertView.findViewById(R.id.now_win);
+        TextView oTourLocation = (TextView) convertView.findViewById(R.id.local_win);
+        TextView oTourScore = (TextView) convertView.findViewById(R.id.price_win);
 
         oTourName.setText(m_oData.get(position).name);
         oTourContent.setText(m_oData.get(position).content);

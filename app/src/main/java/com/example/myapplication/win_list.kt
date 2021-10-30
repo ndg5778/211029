@@ -41,6 +41,7 @@ class ListAdapter(_oData: ArrayList<win_list>?) : BaseAdapter() {
         val oTourContent = convertView.findViewById<View>(R.id.now_win) as TextView
         val oTourLocation = convertView.findViewById<View>(R.id.local_win) as TextView
         val oTourScore = convertView.findViewById<View>(R.id.price_win) as TextView
+
         oTourName.setText(m_oData!![position].title)
         oTourContent.setText(m_oData!![position].content)
         oTourLocation.setText(m_oData!![position].location)

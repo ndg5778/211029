@@ -5,7 +5,6 @@ public class winlist {
     public String content;
     public String location;
     public String score;
-    public String image;
 
     winlist(String name, String content, String location, String score){
         this.name=name;
