@@ -15,7 +15,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import kotlin.math.log
 
-data class ListViewItem(val title: String, val subTitle: String, val date: String, val cost: Int)
+data class ListViewItem(val title: String, val local: String, val date: String, val cost: Int)
 
 class Fragment_win : Fragment() {
     companion object {
